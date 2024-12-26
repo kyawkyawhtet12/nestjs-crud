@@ -1,4 +1,4 @@
-import { updateUserDto, UserDto } from 'src/dto';
+import { updateUserDto, UserDto, UserResponseDto } from 'src/dto';
 import { UserService } from './user.service';
 import { Body, Controller, Delete, Get, HttpStatus, Param, ParseIntPipe, Post } from '@nestjs/common';
 
@@ -12,7 +12,7 @@ export class UserController {
   }
 
   @Post('create')
-  createUser(@Body() userDto: UserDto) {
+  createUser(@Body() userDto: UserDto): Promise<UserResponseDto> {
     return this.userService.createUser(userDto);
   }
 

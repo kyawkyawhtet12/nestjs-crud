@@ -16,10 +16,11 @@ export class UserService {
         password: hashedPassword,
       },
     });
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { password, ...result } = user;
 
-    return result;
+    return {
+      name: user.name,
+      email: user.email,
+    };
   }
 
   async getAllUser(): Promise<UserResponseDto[]> {
